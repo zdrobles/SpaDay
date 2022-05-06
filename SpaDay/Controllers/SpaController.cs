@@ -38,7 +38,7 @@ namespace SpaDay.Controllers
             return View();
         }
 
-        [HttpPost("/spa")]
+        [HttpPost("/spa-menu")]
         public IActionResult Menu(string name, string skintype, string manipedi)
         {
             List<string> facials = new List<string>()
@@ -60,7 +60,5 @@ namespace SpaDay.Controllers
             ViewBag.manipedi = manipedi;
             return View();
         }
-
-
     }
 }
