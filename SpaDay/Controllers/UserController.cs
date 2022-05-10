@@ -21,6 +21,7 @@ namespace SpaDay.Controllers
         [Route("/user")]
         public IActionResult SubmitAddUserForm(User newUser, string verify)
         {
+           
             // add form submission handling code here
             if (newUser.Password == verify)
             {

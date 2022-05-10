@@ -10,7 +10,7 @@
 <form method="post" action="/user">
     @if (ViewBag.error != null)
     {
-        <label>Username: <input name="username" type="text" value="@ViewBag.username"/></label>
+        <label>Username: <input name="username" type="text" value="@ViewBag.user.Username"/></label>
     }
     else
     {
@@ -21,7 +21,7 @@
     <label>Confirm Password: <input name="verify" type="password" /></label>
     @if (ViewBag.error != null)
     {
-        <label>Email: <input name="email" type="text" value="@ViewBag.email"/></label>
+        <label>Email: <input name="email" type="text" value="@ViewBag.user.Email"/></label>
     }
     else
     {
