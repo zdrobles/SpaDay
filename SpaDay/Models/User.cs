@@ -14,11 +14,13 @@ namespace SpaDay.Models
         {
             Date = DateTime.Now;
         }
-        public User(string username, string email, string password)
-        {
-            Username = username;
-            Email = email;
-            Password = password;
-        }
+
+    //we actually dont need a constructor like this for model-binding. but obviously we'll want it if we want to code our own Users
+        //public User(string username, string email, string password) : this()
+        //{
+        //    Username = username;
+        //    Email = email;
+        //    Password = password;
+        //}
     }
 }

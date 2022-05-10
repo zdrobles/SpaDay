@@ -10,31 +10,19 @@ namespace SpaDay.Controllers
             return View();
         }
 
-        [HttpGet("/user/add")]
         public IActionResult Add()
         {
             return View();
         }
-
       
-        [HttpPost]
-        [Route("/user")]
+        [HttpPost("/user")]
         public IActionResult SubmitAddUserForm(User newUser, string verify)
-        {
-           
-            // add form submission handling code here
-            if (newUser.Password == verify)
-            {
-                ViewBag.user = newUser;
-                return View("Index");
-            }
-            else
-            {
-                ViewBag.username = newUser.Username;
-                ViewBag.email = newUser.Email;
-                ViewBag.error = "Error: passwords do not match.";
-                return View("Add");
-            }
+        {           
+            // form submission handling
+            ViewBag.user = newUser;
+            ViewBag.error = "Error: passwords do not match.";//error message is only set after the post request
+            
+            return newUser.Password == verify ? View("Index") : View("Add");//rewritten with ternary
         }
     }
 }
