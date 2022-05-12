@@ -1,20 +1,10 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model SpaDay.Models.User;
 <a asp-controller="spa" asp-action="Index">Return to spa</a>
-@if (ViewBag.user != null)
+@if (Model.Username != null && Model.Email != null)
 {
-    @if (ViewBag.user.Username != null && ViewBag.user.Email != null)
-    {
-        <h1>Welcome, @ViewBag.user.Username</h1>
-        <div>
-
-            <p>Email: @ViewBag.user.Email </p>
-
-            <br>
-            <p>Joined: @ViewBag.user.Date</p>
-        </div>
-    }
+    <h1>Welcome, @Model.Username</h1>
+    <div>
+        <p>Email: @Model.Email </p><br>
+        <p>Joined: @Model.Date</p>
+    </div>
 }

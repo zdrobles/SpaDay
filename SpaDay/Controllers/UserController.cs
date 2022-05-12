@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SpaDay.Models;
+using SpaDay.ViewModel;
 
 namespace SpaDay.Controllers
 {
@@ -16,13 +17,18 @@ namespace SpaDay.Controllers
         }
       
         [HttpPost("/user")]
-        public IActionResult SubmitAddUserForm(User newUser, string verify)
-        {           
+        public IActionResult SubmitAddUserForm(AddUserViewModel addUserViewModel)
+        {
             // form submission handling
-            ViewBag.user = newUser;
+            if (!ModelState.IsValid) { return View("Add", addUserViewModel); }
             ViewBag.error = "Error: passwords do not match.";//error message is only set after the post request
-            
-            return newUser.Password == verify ? View("Index") : View("Add");//rewritten with ternary
+            User newUser = new User
+            {
+                Username = addUserViewModel.Username,
+                Password = addUserViewModel.Password,
+                Email = addUserViewModel.Email,
+            };
+            return addUserViewModel.Password == addUserViewModel.VerifyPassword ? View("Index", newUser) : View("Add",  addUserViewModel);//rewritten with ternary
         }
     }
 }
