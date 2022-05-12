@@ -1,8 +1,13 @@
-﻿@{
-}
+﻿@model SpaDay.Models.User;
+<a asp-controller="spa" asp-action="Index">Return to spa</a>
 
-<h1>Welcome to our spa, @ViewBag.user.Username!</h1>
+<h1>Welcome, @Model.Username</h1>
+<div>
+    @if (Model.Email != null)
+    {
+        <p>Email: @Model.Email </p>
 
-<p>
-    <a asp-controller="Spa" asp-action="Index">Select Spa Services</a>
-</p>
+        <br />
+    }
+    <p>Joined: @Model.Date</p>
+</div>
