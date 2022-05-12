@@ -1,10 +1,13 @@
 ﻿@model SpaDay.Models.User;
 <a asp-controller="spa" asp-action="Index">Return to spa</a>
-@if (Model.Username != null && Model.Email != null)
-{
-    <h1>Welcome, @Model.Username</h1>
-    <div>
-        <p>Email: @Model.Email </p><br>
-        <p>Joined: @Model.Date</p>
-    </div>
-}
+
+<h1>Welcome, @Model.Username</h1>
+<div>
+    @if (Model.Email != null)
+    {
+        <p>Email: @Model.Email </p>
+
+        <br />
+    }
+    <p>Joined: @Model.Date</p>
+</div>

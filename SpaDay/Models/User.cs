@@ -15,7 +15,7 @@ namespace SpaDay.Models
             Date = DateTime.Now;
         }
 
-    //we actually dont need a constructor like this for model-binding. but obviously we'll want it if we want to code our own Users
+    //we actually dont need a constructor like this for model-binding. but, we'll want it if we want to code our own Users. Example: User newGuy = new User("zachary", "z@me", "B@n@n@C@t");
         //public User(string username, string email, string password) : this()
         //{
         //    Username = username;
